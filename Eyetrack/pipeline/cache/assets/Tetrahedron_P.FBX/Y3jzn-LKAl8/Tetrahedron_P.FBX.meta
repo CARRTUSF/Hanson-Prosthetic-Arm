@@ -1,0 +1,16 @@
+{
+    "asset": {},
+    "extension": {},
+    "general": {
+        "embeddedFiles": [],
+        "externalFiles": [],
+        "rootFiles": [
+            "Tetrahedron_P.FBX"
+        ]
+    },
+    "meta": {
+        "processor": "one2one_passthru",
+        "type": "asset-metadata",
+        "version": 1
+    }
+}

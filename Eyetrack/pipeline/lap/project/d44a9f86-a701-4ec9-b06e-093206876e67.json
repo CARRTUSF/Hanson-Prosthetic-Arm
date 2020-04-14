@@ -1,0 +1,23 @@
+{
+  "id": "d44a9f86-a701-4ec9-b06e-093206876e67",
+  "processor": "lap/types/processor/outline_font_from_otf",
+  "input": {
+    "font": [
+      {
+        "path": "SourceArt/Fonts/Roboto-Regular.ttf",
+        "sha256": ""
+      }
+    ]
+  },
+  "output": {
+    "font": [
+      {
+        "path": "-bH2Os3sD7Y/Roboto-Regular.ttf",
+        "sha256": ""
+      }
+    ]
+  },
+  "options": [
+    
+  ]
+}

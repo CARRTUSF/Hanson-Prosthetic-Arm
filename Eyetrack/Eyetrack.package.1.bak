@@ -1,0 +1,5 @@
+REFS = Eyetrack
+USES = \
+	pipeline/cache/AssetManifest \
+	scenes
+

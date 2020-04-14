@@ -1,0 +1,23 @@
+{
+  "id": "fb2d1159-757f-4561-be5e-94689bed728d",
+  "processor": "lap/types/processor/model_from_fbx",
+  "input": {
+    "model": [
+      {
+        "path": "SourceArt/Models/Leaper_Primitives/Leaper_Cube.FBX",
+        "sha256": ""
+      }
+    ]
+  },
+  "output": {
+    "model": [
+      {
+        "path": "_bDibTn9YQM/Leaper_Cube.FBX",
+        "sha256": ""
+      }
+    ]
+  },
+  "options": [
+    
+  ]
+}

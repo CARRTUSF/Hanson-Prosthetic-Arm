@@ -1,0 +1,23 @@
+{
+  "id": "4ee7de1b-5d22-4d16-af05-f4cab1dd444b",
+  "processor": "lap/types/processor/model_from_fbx",
+  "input": {
+    "model": [
+      {
+        "path": "SourceArt/Models/Primitives/Tetrahedron_P.FBX",
+        "sha256": ""
+      }
+    ]
+  },
+  "output": {
+    "model": [
+      {
+        "path": "Y3jzn-LKAl8/Tetrahedron_P.FBX",
+        "sha256": ""
+      }
+    ]
+  },
+  "options": [
+    
+  ]
+}

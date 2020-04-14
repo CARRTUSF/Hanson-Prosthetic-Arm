@@ -1,0 +1,23 @@
+{
+  "id": "dbcc9707-8e4f-4be1-ac22-1cf7dd559a7d",
+  "processor": "lap/types/processor/model_from_fbx",
+  "input": {
+    "model": [
+      {
+        "path": "SourceArt/Models/Primitives/Capsule_P.FBX",
+        "sha256": ""
+      }
+    ]
+  },
+  "output": {
+    "model": [
+      {
+        "path": "EivC8LsYxwY/Capsule_P.FBX",
+        "sha256": ""
+      }
+    ]
+  },
+  "options": [
+    
+  ]
+}

@@ -1,0 +1,3 @@
+DATAS = \
+	scenes/NewScene.scene.res.xml : assets/scenes/NewScene.scene.res.xml \
+	scenes/NewScene.scene.xml : assets/scenes/NewScene.scene.xml

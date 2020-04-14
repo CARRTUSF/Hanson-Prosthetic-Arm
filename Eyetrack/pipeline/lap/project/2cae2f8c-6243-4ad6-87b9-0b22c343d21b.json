@@ -1,0 +1,23 @@
+{
+  "id": "2cae2f8c-6243-4ad6-87b9-0b22c343d21b",
+  "processor": "lap/types/processor/outline_font_from_otf",
+  "input": {
+    "font": [
+      {
+        "path": "SourceArt/Fonts/ObjektivMk3_Md.ttf",
+        "sha256": ""
+      }
+    ]
+  },
+  "output": {
+    "font": [
+      {
+        "path": "rU-GLB1QR9Q/ObjektivMk3_Md.ttf",
+        "sha256": ""
+      }
+    ]
+  },
+  "options": [
+    
+  ]
+}

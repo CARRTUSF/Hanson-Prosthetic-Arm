@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<design:rootNode xmlns:design="http://www.magicleap.com/uidesigner/rcp/document/design" name="root" nodeTypeId="lumin.root" modelId="lumin" version="1.11.5">
+  <property id="name" value="root"/>
+  <node name="InitialTarget" nodeTypeId="lumin.text2d">
+    <property id="color" value="0.2 0.302 0.702 1"/>
+    <property id="external" value="true"/>
+    <property id="font" value="8948b8bd-b6db-4dd2-9a43-ea790a35dd9c"/>
+    <property id="justification" value="Centered"/>
+    <property id="name" value="InitialTarget"/>
+    <property id="position"/>
+    <property id="rotation"/>
+    <property id="scale">
+      <property id="x" value="0.01"/>
+      <property id="y" value="0.01"/>
+      <property id="z" value="0.01"/>
+    </property>
+    <property id="text" value="Initial Target"/>
+  </node>
+  <node name="FinalTarget" nodeTypeId="lumin.text2d">
+    <property id="color" value="0.6 0 0 1"/>
+    <property id="external" value="true"/>
+    <property id="font" value="8948b8bd-b6db-4dd2-9a43-ea790a35dd9c"/>
+    <property id="justification" value="Centered"/>
+    <property id="name" value="FinalTarget"/>
+    <property id="position"/>
+    <property id="rotation"/>
+    <property id="scale">
+      <property id="x" value="0.01"/>
+      <property id="y" value="0.01"/>
+      <property id="z" value="0.01"/>
+    </property>
+    <property id="text" value="Final Target"/>
+  </node>
+  <node name="Distance" nodeTypeId="lumin.text2d">
+    <property id="color" value="0.6 0.6 0 1"/>
+    <property id="external" value="true"/>
+    <property id="font" value="8948b8bd-b6db-4dd2-9a43-ea790a35dd9c"/>
+    <property id="justification" value="Centered"/>
+    <property id="name" value="Distance"/>
+    <property id="position"/>
+    <property id="rotation"/>
+    <property id="scale">
+      <property id="x" value="0.01"/>
+      <property id="y" value="0.01"/>
+      <property id="z" value="0.01"/>
+    </property>
+    <property id="text" value=""/>
+  </node>
+  <node name="Laser" nodeTypeId="lumin.model">
+    <property id="animationSetupResource"/>
+    <property id="color" value="1 1 0.502 1"/>
+    <property id="external" value="true"/>
+    <property id="materialAndModel">
+      <property id="model" value="42770df1-4c49-4e19-a8b0-4da30a5f7aca"/>
+    </property>
+    <property id="name" value="Laser"/>
+    <property id="position">
+      <property id="z" value="-0.5"/>
+    </property>
+    <property id="rotation"/>
+    <property id="scale">
+      <property id="x" value="0.01"/>
+      <property id="y" value="0.01"/>
+    </property>
+  </node>
+  <node name="TargetingModel" nodeTypeId="lumin.model">
+    <property id="animationSetupResource"/>
+    <property id="color" value="0.6 0 0 1"/>
+    <property id="external" value="true"/>
+    <property id="materialAndModel">
+      <property id="model" value="42770df1-4c49-4e19-a8b0-4da30a5f7aca"/>
+    </property>
+    <property id="name" value="TargetingModel"/>
+    <property id="position"/>
+    <property id="rotation"/>
+    <property id="scale">
+      <property id="x" value="0.01"/>
+      <property id="y" value="0.01"/>
+      <property id="z" value="0.01"/>
+    </property>
+  </node>
+  <node name="Target1" nodeTypeId="lumin.model">
+    <property id="animationSetupResource"/>
+    <property id="color" value="0.6 0.702 1 1"/>
+    <property id="materialAndModel">
+      <property id="model" value="b38d8671-285f-432b-9df6-58b7c4cd811d"/>
+    </property>
+    <property id="name" value="Target1"/>
+    <property id="position"/>
+    <property id="rotation"/>
+    <property id="scale">
+      <property id="x" value="0.02"/>
+      <property id="y" value="0.02"/>
+      <property id="z" value="0.02"/>
+    </property>
+  </node>
+  <node name="Target2" nodeTypeId="lumin.model">
+    <property id="animationSetupResource"/>
+    <property id="color" value="0.502 0.2 0.302 1"/>
+    <property id="materialAndModel">
+      <property id="model" value="b38d8671-285f-432b-9df6-58b7c4cd811d"/>
+    </property>
+    <property id="name" value="Target2"/>
+    <property id="position"/>
+    <property id="rotation"/>
+    <property id="scale">
+      <property id="x" value="0.02"/>
+      <property id="y" value="0.02"/>
+      <property id="z" value="0.02"/>
+    </property>
+  </node>
+</design:rootNode>

@@ -1,0 +1,23 @@
+{
+  "id": "e89fbd0b-c3de-4671-bf5f-803943475bc4",
+  "processor": "lap/types/processor/model_from_fbx",
+  "input": {
+    "model": [
+      {
+        "path": "SourceArt/Models/Primitives/Pyramid_P.FBX",
+        "sha256": ""
+      }
+    ]
+  },
+  "output": {
+    "model": [
+      {
+        "path": "2gjgopwxASk/Pyramid_P.FBX",
+        "sha256": ""
+      }
+    ]
+  },
+  "options": [
+    
+  ]
+}

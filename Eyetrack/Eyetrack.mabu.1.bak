@@ -1,0 +1,13 @@
+INCS = \
+	code/inc/ \
+	code/inc/gen/
+
+KIND = program
+SRCS = \
+	code/src/Eyetrack.cpp \
+	code/src/main.cpp
+
+USES = \
+	code/srcs \
+	lumin_runtime
+

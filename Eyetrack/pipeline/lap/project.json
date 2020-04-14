@@ -1,0 +1,555 @@
+{
+  "intermediate-storage": {
+    "path": "cache",
+    "kind": "in-tree"
+  },
+  "project-schema-version": 4,
+  "project-build-version": "1.4.4",
+  "types": {
+    "assets": [
+      "lap/types/asset/audio",
+      "lap/types/asset/blend-setup",
+      "lap/types/asset/material",
+      "lap/types/asset/model",
+      "lap/types/asset/motion-set",
+      "lap/types/asset/outline-font",
+      "lap/types/asset/sprite",
+      "lap/types/asset/texture"
+    ]
+  },
+  "checkpoint-hash": "e33541b62fbd1e1ea964a274ee6ef2f2dcff9ad289437417ea4db1a72046a925dd0c9c9bdd91468e8d660ed91d6771a1f95f6848a82a07e4a188e7a651920377",
+  "nodes": {
+    "00d9e992-a4f5-4b69-8c25-58fdaf55bf98": {
+      "kind": "file",
+      "comment": "Cube_P.FBX",
+      "descriptor": {
+        "path": "SourceArt/Models/Primitives/Cube_P.FBX",
+        "sha256": "95d5a75a00ecf5653d11d68217623f84c4e4974f1587d0e39a7ed719a4e1cc5e"
+      },
+      "name": "Cube_P.FBX",
+      "links": []
+    },
+    "bdfa7ced-b8c6-4abc-a1d3-39f9e3cab10b": {
+      "kind": "processor",
+      "comment": "Passthru Cube_P.FBX to model.",
+      "expectedRuntime": 1.0617299810651037,
+      "systemWeights": {
+        "cpuCoreCount": 1.0,
+        "cpuPct": 1.0,
+        "gpuPct": 1.0,
+        "ioPct": 1.0
+      },
+      "descriptor": {
+        "path": "lap/project/bdfa7ced-b8c6-4abc-a1d3-39f9e3cab10b",
+        "sha256": "4fa3281d78dc0232e8e8dcaa622df8941fbe68f849bc6a72a3bb5453e9b49df2"
+      },
+      "links": [
+        {
+          "source": {
+            "aspect": "file",
+            "node": "00d9e992-a4f5-4b69-8c25-58fdaf55bf98"
+          },
+          "target": {
+            "aspect": "model"
+          }
+        }
+      ]
+    },
+    "21278c41-4a6e-4ca9-9ba3-17f6d8b4a31e": {
+      "kind": "file",
+      "comment": "Intermediate Cube_P.FBX",
+      "descriptor": {
+        "path": "qlUmoHWlABA/Cube_P.FBX",
+        "sha256": "a72cbd9fa4a1221b6a611b5e72b07056dc22771a6ac94410921d73f7bdf8abad"
+      },
+      "name": "",
+      "links": [
+        {
+          "source": {
+            "aspect": "model",
+            "node": "bdfa7ced-b8c6-4abc-a1d3-39f9e3cab10b"
+          },
+          "target": {
+            "aspect": "file"
+          }
+        }
+      ]
+    },
+    "42770df1-4c49-4e19-a8b0-4da30a5f7aca": {
+      "name": "Cube_P.FBX",
+      "kind": "asset",
+      "comment": "Intermediate Cube_P.FBX",
+      "asset": "lap/types/asset/model",
+      "links": [
+        {
+          "source": {
+            "aspect": "file",
+            "node": "21278c41-4a6e-4ca9-9ba3-17f6d8b4a31e"
+          },
+          "target": {
+            "aspect": "model"
+          }
+        }
+      ],
+      "dirty": false,
+      "exclude": false,
+      "extension": {}
+    },
+    "2428d11a-adab-49a3-97ba-427df0df5b86": {
+      "kind": "file",
+      "comment": "Capsule_P.FBX",
+      "descriptor": {
+        "path": "SourceArt/Models/Primitives/Capsule_P.FBX",
+        "sha256": "e0b53836ee8b8245e8efbeedc3a6b0ca45b648e84d0d0916fdfa6d7f760a52aa"
+      },
+      "name": "Capsule_P.FBX",
+      "links": []
+    },
+    "dbcc9707-8e4f-4be1-ac22-1cf7dd559a7d": {
+      "kind": "processor",
+      "comment": "Passthru Capsule_P.FBX to model.",
+      "expectedRuntime": 1.0745297580840079,
+      "systemWeights": {
+        "cpuCoreCount": 1.0,
+        "cpuPct": 1.0,
+        "gpuPct": 1.0,
+        "ioPct": 1.0
+      },
+      "descriptor": {
+        "path": "lap/project/dbcc9707-8e4f-4be1-ac22-1cf7dd559a7d",
+        "sha256": "fe5b6472ff3bf87fc51f0bdf71fa1e2bd31009ff11276fb0c863374b7b9f856e"
+      },
+      "links": [
+        {
+          "source": {
+            "aspect": "file",
+            "node": "2428d11a-adab-49a3-97ba-427df0df5b86"
+          },
+          "target": {
+            "aspect": "model"
+          }
+        }
+      ]
+    },
+    "31993577-8a3f-428c-a920-658608931d70": {
+      "kind": "file",
+      "comment": "Intermediate Capsule_P.FBX",
+      "descriptor": {
+        "path": "EivC8LsYxwY/Capsule_P.FBX",
+        "sha256": "a2df051537e15bc705e91d38fde5c5db5b98f50fd6053b168fd53be3e6caa5bc"
+      },
+      "name": "",
+      "links": [
+        {
+          "source": {
+            "aspect": "model",
+            "node": "dbcc9707-8e4f-4be1-ac22-1cf7dd559a7d"
+          },
+          "target": {
+            "aspect": "file"
+          }
+        }
+      ]
+    },
+    "700b11f8-75ab-4da7-9de1-2ebcce8f0bff": {
+      "name": "Capsule_P.FBX",
+      "kind": "asset",
+      "comment": "Intermediate Capsule_P.FBX",
+      "asset": "lap/types/asset/model",
+      "links": [
+        {
+          "source": {
+            "aspect": "file",
+            "node": "31993577-8a3f-428c-a920-658608931d70"
+          },
+          "target": {
+            "aspect": "model"
+          }
+        }
+      ],
+      "dirty": false,
+      "exclude": false,
+      "extension": {}
+    },
+    "342ca8b5-a794-4b31-9511-3bb369015019": {
+      "kind": "file",
+      "comment": "Tetrahedron_P.FBX",
+      "descriptor": {
+        "path": "SourceArt/Models/Primitives/Tetrahedron_P.FBX",
+        "sha256": "a0fac6a10a3dd4ea45c4ed9b1fe8660ec341f46ab71c96e6c5b99de0ce8da988"
+      },
+      "name": "Tetrahedron_P.FBX",
+      "links": []
+    },
+    "4ee7de1b-5d22-4d16-af05-f4cab1dd444b": {
+      "kind": "processor",
+      "comment": "Passthru Tetrahedron_P.FBX to model.",
+      "expectedRuntime": 1.0758213537353007,
+      "systemWeights": {
+        "cpuCoreCount": 1.0,
+        "cpuPct": 1.0,
+        "gpuPct": 1.0,
+        "ioPct": 1.0
+      },
+      "descriptor": {
+        "path": "lap/project/4ee7de1b-5d22-4d16-af05-f4cab1dd444b",
+        "sha256": "ed952da2347cc683fc05a42daddddbc607cff19acf78b4ecc193cb4d714e5440"
+      },
+      "links": [
+        {
+          "source": {
+            "aspect": "file",
+            "node": "342ca8b5-a794-4b31-9511-3bb369015019"
+          },
+          "target": {
+            "aspect": "model"
+          }
+        }
+      ]
+    },
+    "4c91c5d7-538a-42f9-ba72-b79ac3e19acd": {
+      "kind": "file",
+      "comment": "Intermediate Tetrahedron_P.FBX",
+      "descriptor": {
+        "path": "Y3jzn-LKAl8/Tetrahedron_P.FBX",
+        "sha256": "a9478615c9564f9990d42ab6fc47c57421ad51d6bf9a8ff36b419bde1e784d82"
+      },
+      "name": "",
+      "links": [
+        {
+          "source": {
+            "aspect": "model",
+            "node": "4ee7de1b-5d22-4d16-af05-f4cab1dd444b"
+          },
+          "target": {
+            "aspect": "file"
+          }
+        }
+      ]
+    },
+    "70c1f022-a40a-425e-a1a0-1be527172998": {
+      "name": "Tetrahedron_P.FBX",
+      "kind": "asset",
+      "comment": "Intermediate Tetrahedron_P.FBX",
+      "asset": "lap/types/asset/model",
+      "links": [
+        {
+          "source": {
+            "aspect": "file",
+            "node": "4c91c5d7-538a-42f9-ba72-b79ac3e19acd"
+          },
+          "target": {
+            "aspect": "model"
+          }
+        }
+      ],
+      "dirty": false,
+      "exclude": false,
+      "extension": {}
+    },
+    "4a12c9b5-5d37-47c9-908a-359d8c7d7550": {
+      "kind": "file",
+      "comment": "Leaper_Cube.FBX",
+      "descriptor": {
+        "path": "SourceArt/Models/Leaper_Primitives/Leaper_Cube.FBX",
+        "sha256": "34609adc7511c2a3e354f825657232e9eb3718fd10a2b4c747af93cccc3ba136"
+      },
+      "name": "Leaper_Cube.FBX",
+      "links": []
+    },
+    "fb2d1159-757f-4561-be5e-94689bed728d": {
+      "kind": "processor",
+      "comment": "Passthru Leaper_Cube.FBX to model.",
+      "expectedRuntime": 1.0585518528054016,
+      "systemWeights": {
+        "cpuCoreCount": 1.0,
+        "cpuPct": 1.0,
+        "gpuPct": 1.0,
+        "ioPct": 1.0
+      },
+      "descriptor": {
+        "path": "lap/project/fb2d1159-757f-4561-be5e-94689bed728d",
+        "sha256": "c6b731113f6c8e6775ffa7bb59e6b298a31e70c383ac3fc27da22a929aae1aa3"
+      },
+      "links": [
+        {
+          "source": {
+            "aspect": "file",
+            "node": "4a12c9b5-5d37-47c9-908a-359d8c7d7550"
+          },
+          "target": {
+            "aspect": "model"
+          }
+        }
+      ]
+    },
+    "7a7ef705-a992-45da-84da-df453656f786": {
+      "kind": "file",
+      "comment": "Intermediate Leaper_Cube.FBX",
+      "descriptor": {
+        "path": "_bDibTn9YQM/Leaper_Cube.FBX",
+        "sha256": "9753341676bcb2084f9e034a614c20bb350c5984694d7b56082f117b9d5cd7b0"
+      },
+      "name": "",
+      "links": [
+        {
+          "source": {
+            "aspect": "model",
+            "node": "fb2d1159-757f-4561-be5e-94689bed728d"
+          },
+          "target": {
+            "aspect": "file"
+          }
+        }
+      ]
+    },
+    "2b442dbe-5b33-46a8-bd93-f34a2be006da": {
+      "name": "Leaper_Cube.FBX",
+      "kind": "asset",
+      "comment": "Intermediate Leaper_Cube.FBX",
+      "asset": "lap/types/asset/model",
+      "links": [
+        {
+          "source": {
+            "aspect": "file",
+            "node": "7a7ef705-a992-45da-84da-df453656f786"
+          },
+          "target": {
+            "aspect": "model"
+          }
+        }
+      ],
+      "dirty": false,
+      "exclude": false,
+      "extension": {}
+    },
+    "366ad76a-9918-4473-bc9d-21e414946320": {
+      "kind": "file",
+      "comment": "Roboto-Regular.ttf",
+      "descriptor": {
+        "path": "SourceArt/Fonts/Roboto-Regular.ttf",
+        "sha256": "b2efabca5ea4bc56eea829713706b5cd0788b82aca153bd4adde9b1573933b4f"
+      },
+      "name": "Roboto-Regular.ttf",
+      "links": []
+    },
+    "d44a9f86-a701-4ec9-b06e-093206876e67": {
+      "kind": "processor",
+      "comment": "Passthru Roboto-Regular.ttf to outline font.",
+      "expectedRuntime": 1.1446824907677062,
+      "systemWeights": {
+        "cpuCoreCount": 1.0,
+        "cpuPct": 1.0,
+        "gpuPct": 1.0,
+        "ioPct": 1.0
+      },
+      "descriptor": {
+        "path": "lap/project/d44a9f86-a701-4ec9-b06e-093206876e67",
+        "sha256": "688b671a87afb2d8023eef72b3d0c61ddcf541e57b4cbde8d403028cc40faeaa"
+      },
+      "links": [
+        {
+          "source": {
+            "aspect": "file",
+            "node": "366ad76a-9918-4473-bc9d-21e414946320"
+          },
+          "target": {
+            "aspect": "font"
+          }
+        }
+      ]
+    },
+    "ff8a23a3-bd98-4450-b689-f16c58c39e72": {
+      "kind": "file",
+      "comment": "Intermediate Roboto-Regular.ttf",
+      "descriptor": {
+        "path": "-bH2Os3sD7Y/Roboto-Regular.ttf",
+        "sha256": "6cd28846ecdaeab8662a8f6f497512ea362b844705b62ba4322a604c9de3a7f9"
+      },
+      "name": "",
+      "links": [
+        {
+          "source": {
+            "aspect": "font",
+            "node": "d44a9f86-a701-4ec9-b06e-093206876e67"
+          },
+          "target": {
+            "aspect": "file"
+          }
+        }
+      ]
+    },
+    "8948b8bd-b6db-4dd2-9a43-ea790a35dd9c": {
+      "name": "Roboto-Regular.ttf",
+      "kind": "asset",
+      "comment": "Intermediate Roboto-Regular.ttf",
+      "asset": "lap/types/asset/outline-font",
+      "links": [
+        {
+          "source": {
+            "aspect": "file",
+            "node": "ff8a23a3-bd98-4450-b689-f16c58c39e72"
+          },
+          "target": {
+            "aspect": "font"
+          }
+        }
+      ],
+      "dirty": false,
+      "exclude": false,
+      "extension": {}
+    },
+    "f0322c64-8476-4716-8de7-9e575349e4f9": {
+      "kind": "file",
+      "comment": "ObjektivMk3_Md.ttf",
+      "descriptor": {
+        "path": "SourceArt/Fonts/ObjektivMk3_Md.ttf",
+        "sha256": "59e274c3eb4465c517bbe46ffc87551c63f6a67e10a9db3df8a1b6a2547963e8"
+      },
+      "name": "ObjektivMk3_Md.ttf",
+      "links": []
+    },
+    "2cae2f8c-6243-4ad6-87b9-0b22c343d21b": {
+      "kind": "processor",
+      "comment": "Passthru ObjektivMk3_Md.ttf to outline font.",
+      "expectedRuntime": 1.0584216590736142,
+      "systemWeights": {
+        "cpuCoreCount": 1.0,
+        "cpuPct": 1.0,
+        "gpuPct": 1.0,
+        "ioPct": 1.0
+      },
+      "descriptor": {
+        "path": "lap/project/2cae2f8c-6243-4ad6-87b9-0b22c343d21b",
+        "sha256": "65a0b9e3f8da694808afca755c7c3e1434dc07651f63e131d434062da1499eb2"
+      },
+      "links": [
+        {
+          "source": {
+            "aspect": "file",
+            "node": "f0322c64-8476-4716-8de7-9e575349e4f9"
+          },
+          "target": {
+            "aspect": "font"
+          }
+        }
+      ]
+    },
+    "f3eb4170-33da-4dab-91ad-582ed3817862": {
+      "kind": "file",
+      "comment": "Intermediate ObjektivMk3_Md.ttf",
+      "descriptor": {
+        "path": "rU-GLB1QR9Q/ObjektivMk3_Md.ttf",
+        "sha256": "26cda40a7ba48c9dc06c62e8482dc5a75051bc5824b847e2d9d75f92da7e92d5"
+      },
+      "name": "",
+      "links": [
+        {
+          "source": {
+            "aspect": "font",
+            "node": "2cae2f8c-6243-4ad6-87b9-0b22c343d21b"
+          },
+          "target": {
+            "aspect": "file"
+          }
+        }
+      ]
+    },
+    "379121ba-9a96-41f4-bd9a-817c0024967f": {
+      "name": "ObjektivMk3_Md.ttf",
+      "kind": "asset",
+      "comment": "Intermediate ObjektivMk3_Md.ttf",
+      "asset": "lap/types/asset/outline-font",
+      "links": [
+        {
+          "source": {
+            "aspect": "file",
+            "node": "f3eb4170-33da-4dab-91ad-582ed3817862"
+          },
+          "target": {
+            "aspect": "font"
+          }
+        }
+      ],
+      "dirty": false,
+      "exclude": false,
+      "extension": {}
+    },
+    "2f4aa8a2-e1d3-424d-b14c-a45183ef6b6b": {
+      "kind": "file",
+      "comment": "Pyramid_P.FBX",
+      "descriptor": {
+        "path": "SourceArt/Models/Primitives/Pyramid_P.FBX",
+        "sha256": "70d2fa692b408deb93ca1002196bfe10b4f6d0e4fe4668b9588f06e146fe1057"
+      },
+      "name": "Pyramid_P.FBX",
+      "links": []
+    },
+    "e89fbd0b-c3de-4671-bf5f-803943475bc4": {
+      "kind": "processor",
+      "comment": "Passthru Pyramid_P.FBX to model.",
+      "expectedRuntime": 1.0919528022900533,
+      "systemWeights": {
+        "cpuCoreCount": 1.0,
+        "cpuPct": 1.0,
+        "gpuPct": 1.0,
+        "ioPct": 1.0
+      },
+      "descriptor": {
+        "path": "lap/project/e89fbd0b-c3de-4671-bf5f-803943475bc4",
+        "sha256": "16aee5efba74a422543fa4a7f4369ae8acc7534eb44ab85d19aadf86d0b09c29"
+      },
+      "links": [
+        {
+          "source": {
+            "aspect": "file",
+            "node": "2f4aa8a2-e1d3-424d-b14c-a45183ef6b6b"
+          },
+          "target": {
+            "aspect": "model"
+          }
+        }
+      ]
+    },
+    "e3d7ccae-d792-459f-a879-d1c9a99086f2": {
+      "kind": "file",
+      "comment": "Intermediate Pyramid_P.FBX",
+      "descriptor": {
+        "path": "2gjgopwxASk/Pyramid_P.FBX",
+        "sha256": "08df7f1c4d286ebc176342bc82ce84022160cdad2b5dacdcadaca17f89f161fe"
+      },
+      "name": "",
+      "links": [
+        {
+          "source": {
+            "aspect": "model",
+            "node": "e89fbd0b-c3de-4671-bf5f-803943475bc4"
+          },
+          "target": {
+            "aspect": "file"
+          }
+        }
+      ]
+    },
+    "b38d8671-285f-432b-9df6-58b7c4cd811d": {
+      "name": "Pyramid_P.FBX",
+      "kind": "asset",
+      "comment": "Intermediate Pyramid_P.FBX",
+      "asset": "lap/types/asset/model",
+      "links": [
+        {
+          "source": {
+            "aspect": "file",
+            "node": "e3d7ccae-d792-459f-a879-d1c9a99086f2"
+          },
+          "target": {
+            "aspect": "model"
+          }
+        }
+      ],
+      "dirty": false,
+      "exclude": false,
+      "extension": {}
+    }
+  }
+}
