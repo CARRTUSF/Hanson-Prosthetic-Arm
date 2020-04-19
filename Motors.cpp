@@ -36,7 +36,7 @@ Motors::Motors() {
 }
 
 void Motors::backToNomial() {
-    moveTogether(0, 0, 0, 0, 0);
+    moveTogether(0, 0, 0, 0, 0, 0, 0);
 }
 
 void Motors::moveOne(int position, int dxl_id) {
@@ -144,7 +144,7 @@ void Motors::setParamGoalArray(int position) {
 
 }
 
-void Motors::moveTogether(int P1, int P2, int P3, int P4, int P5) {
+void Motors::moveTogether(int P1, int P2, int P3, int P4, int P5, int P6, int P7) {
     
     if (!isOpen) {
         portHandler->openPort();
@@ -164,7 +164,7 @@ void Motors::moveTogether(int P1, int P2, int P3, int P4, int P5) {
     
     int32_t oldDx1, oldDx2, oldDx3, oldDx4, oldDx5, oldDx6, oldDx7;
 
-    oldDx1 = oldDx2 = oldDx3 = oldDx4 = oldDx5 = 0;
+    oldDx1 = oldDx2 = oldDx3 = oldDx4 = oldDx5 = oldDx6 = oldDx7 = 0;
 
     // Add parameter storage for Dynamixel#1 present position value
     /*dxl_addparam_result = groupSyncRead.addParam(DXL_ID1);
@@ -203,7 +203,7 @@ void Motors::moveTogether(int P1, int P2, int P3, int P4, int P5) {
         return;
     }
 
-    /*
+    
         dxl_addparam_result = groupSyncRead.addParam(DXL_ID6);
     if (dxl_addparam_result != true)
     {
@@ -217,18 +217,18 @@ void Motors::moveTogether(int P1, int P2, int P3, int P4, int P5) {
         return;
     }
     
-    */
-   // connect(DXL_ID1);
+    
+    //connect(DXL_ID1);
     connect(DXL_ID2);
     connect(DXL_ID3);
     connect(DXL_ID4);
     connect(DXL_ID5);
-    //connect(DXL_ID6);
-    //connect(DXL_ID7);
+    connect(DXL_ID6);
+    connect(DXL_ID7);
 
     //write logic
         // Add Dynamixel#1 goal position value to the Syncwrite storage
-  /*  setParamGoalArray(P1);
+    /*etParamGoalArray(P1);
     dxl_addparam_result = groupSyncWrite.addParam(DXL_ID1, param_goal_position);
     if (dxl_addparam_result != true)
     {
@@ -272,7 +272,7 @@ void Motors::moveTogether(int P1, int P2, int P3, int P4, int P5) {
         return;
     }
 
-    /*
+    
         setParamGoalArray(P6);
     // Add Dynamixel#6 goal position value to the Syncwrite parameter storage
     dxl_addparam_result = groupSyncWrite.addParam(DXL_ID6, param_goal_position);
@@ -290,7 +290,7 @@ void Motors::moveTogether(int P1, int P2, int P3, int P4, int P5) {
         return;
     }
     
-    */
+    
     
 
     // Syncwrite goal position
@@ -333,10 +333,10 @@ void Motors::moveTogether(int P1, int P2, int P3, int P4, int P5) {
             printf("[ID:%03d] %s\n", DXL_ID5, packetHandler->getRxPacketError(dxl_error));
         }
 
-     /*   else if (groupSyncRead.getError(DXL_ID1, &dxl_error))
-        {
-            printf("[ID:%03d] %s\n", DXL_ID1, packetHandler->getRxPacketError(dxl_error));
-        }
+//        else if (groupSyncRead.getError(DXL_ID1, &dxl_error))
+  //      {
+    //        printf("[ID:%03d] %s\n", DXL_ID1, packetHandler->getRxPacketError(dxl_error));
+      //  }
 
                 else if (groupSyncRead.getError(DXL_ID6, &dxl_error))
         {
@@ -346,17 +346,17 @@ void Motors::moveTogether(int P1, int P2, int P3, int P4, int P5) {
         {
             printf("[ID:%03d] %s\n", DXL_ID7, packetHandler->getRxPacketError(dxl_error));
         }
-        */
+        
 
         // Check if groupsyncread data of Dynamixel#1 is available
-        /*
-        dxl_getdata_result = groupSyncRead.isAvailable(DXL_ID1, ADDR_PRO_PRESENT_POSITION, LEN_PRO_PRESENT_POSITION);
-        if (dxl_getdata_result != true)
-        {
-            fprintf(stderr, "[ID:%03d] groupSyncRead getdata failed", DXL_ID1);
-            return;
-        }
-        */
+        
+        //dxl_getdata_result = groupSyncRead.isAvailable(DXL_ID1, ADDR_PRO_PRESENT_POSITION, LEN_PRO_PRESENT_POSITION);
+        //if (dxl_getdata_result != true)
+        //{
+         //   fprintf(stderr, "[ID:%03d] groupSyncRead getdata failed", DXL_ID1);
+          //  return;
+        //}
+        
 
         // Check if groupsyncread data of Dynamixel#2 is available
         dxl_getdata_result = groupSyncRead.isAvailable(DXL_ID2, ADDR_PRO_PRESENT_POSITION, LEN_PRO_PRESENT_POSITION);
@@ -387,7 +387,7 @@ void Motors::moveTogether(int P1, int P2, int P3, int P4, int P5) {
             return;
         }
 
-        /*
+        
                 // Check if groupsyncread data of Dynamixel#6 is available
         dxl_getdata_result = groupSyncRead.isAvailable(DXL_ID6, ADDR_PRO_PRESENT_POSITION, LEN_PRO_PRESENT_POSITION);
         if (dxl_getdata_result != true)
@@ -402,7 +402,7 @@ void Motors::moveTogether(int P1, int P2, int P3, int P4, int P5) {
             fprintf(stderr, "[ID:%03d] groupSyncRead getdata failed", DXL_ID7);
             return;
         }
-        */
+        
         
 
 
@@ -421,21 +421,21 @@ void Motors::moveTogether(int P1, int P2, int P3, int P4, int P5) {
         // Get Dynamixel#5 present position value
         dxl5_present_position = groupSyncRead.getData(DXL_ID5, ADDR_PRO_PRESENT_POSITION, LEN_PRO_PRESENT_POSITION);
 
-        /*
+       
                 // Get Dynamixel#6 present position value
-        dxl6_present_position = groupSyncRead.getData(DXL_ID6, ADDR_PRO_PRESENT_POSITION, LEN_PRO_PRESENT_POSITION);
+        dxl6_present_positoin = groupSyncRead.getData(DXL_ID6, ADDR_PRO_PRESENT_POSITION, LEN_PRO_PRESENT_POSITION);
 
                 // Get Dynamixel#7 present position value
         dxl7_present_position = groupSyncRead.getData(DXL_ID7, ADDR_PRO_PRESENT_POSITION, LEN_PRO_PRESENT_POSITION);
         
-        */
+        
 
 
         printf("[ID:%03d] GoalPos:%03d  PresPos:%03d\t[ID:%03d] GoalPos:%03d  PresPos:%03d\t[ID:%03d] GoalPos:%03d  PresPos:%03d\t[ID:%03d] GoalPos:%03d  PresPos:%03d\t[ID:%03d] GoalPos:%03d  PresPos:%03d\n", 
             DXL_ID1, P1, dxl1_present_position, DXL_ID2, P2, dxl2_present_position, DXL_ID3, P3, dxl3_present_position, DXL_ID4, P4, dxl4_present_position, DXL_ID5, P5, dxl5_present_position);
 
-        if (oldDx1 == dxl1_present_position + 1 || oldDx1 == dxl1_present_position - 1 || oldDx1 + 1 == dxl1_present_position || oldDx1 - 1 == dxl1_present_position || oldDx1 == dxl1_present_position)
-            count1++;
+       // if (oldDx1 == dxl1_present_position + 1 || oldDx1 == dxl1_present_position - 1 || oldDx1 + 1 == dxl1_present_position || oldDx1 - 1 == dxl1_present_position || oldDx1 == dxl1_present_position)
+         //   count1++;
         if (oldDx2 == dxl2_present_position + 1 || oldDx2 == dxl2_present_position - 1 || oldDx2 + 1 == dxl2_present_position || oldDx2 - 1 == dxl2_present_position || oldDx2 == dxl2_present_position)
             count2++;
         if (oldDx3 == dxl3_present_position + 1 || oldDx3 == dxl3_present_position - 1 || oldDx3 + 1 == dxl3_present_position || oldDx3 - 1 == dxl3_present_position || oldDx3 == dxl3_present_position)
@@ -444,19 +444,19 @@ void Motors::moveTogether(int P1, int P2, int P3, int P4, int P5) {
             count4++;
         if (oldDx5 == dxl5_present_position + 1 || oldDx5 == dxl5_present_position - 1 || oldDx5 + 1 == dxl5_present_position || oldDx5 - 1 == dxl5_present_position || oldDx5 == dxl5_present_position)
             count5++;
-        if (count1 > 5 && count2 > 5 && count3 > 5 && count4 > 5 && count5 > 5)
+        if ( count2 > 5 && count3 > 5 && count4 > 5 && count5 > 5)
             break;
        // printf("\n%d\t%d\t%d\t%d\t%d\n", count1, count2, count3, count4, count5);
-    } while ( abs(P2 - dxl2_present_position) > 10  || abs(P4 - dxl4_present_position) > 10 || abs(P3 - dxl3_present_position) > 10 || abs(P5 - dxl5_present_position) > 10);
-    //(abs(P1 - dxl1_present_position) > 10) || abs(P6 - dxl6_present_position) > 20 || abs(P7 - dxl7_present_position) > 20
+    } while ( abs(P2 - dxl2_present_position) > 10  || abs(P4 - dxl4_present_position) > 10 || abs(P3 - dxl3_present_position) > 10 || abs(P5 - dxl5_present_position) > 10 || abs(P6 - dxl6_present_positoin) > 20 || abs(P7 - dxl7_present_position) > 20);
+    //(
     
     //disconnect(DXL_ID1);
     disconnect(DXL_ID2);
     disconnect(DXL_ID3);
     disconnect(DXL_ID4);
     disconnect(DXL_ID5);
-    //disconnect(DXL_ID6);
-    //disconnect(DXL_ID7);
+    disconnect(DXL_ID6);
+    disconnect(DXL_ID7);
 
     portHandler->closePort();
     isOpen = false;

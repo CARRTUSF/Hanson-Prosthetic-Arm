@@ -43,7 +43,7 @@ class Motors
 {
 public:
 	Motors();
-	void moveTogether(int P1, int P2, int P3, int P4, int P5);
+	void moveTogether(int P1, int P2, int P3, int P4, int P5, int P6, int P7);
 	void moveOne(int position, int dxl_id);
 	void connect(int dxl_id);
 	void disconnect(int dxl_id);
