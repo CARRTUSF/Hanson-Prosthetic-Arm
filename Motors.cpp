@@ -32,11 +32,22 @@ Motors::Motors() {
         printf("Failed to change the baudrate!\n");
     }
 
+    dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, 1, 100, 30, &dxl_error);
+    if (dxl_comm_result != COMM_SUCCESS)
+    {
+        printf("%s\n", packetHandler->getTxRxResult(dxl_comm_result));
+    }
+    dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, 1, 36, 600, &dxl_error);
+    if (dxl_comm_result != COMM_SUCCESS)
+    {
+        printf("%s\n", packetHandler->getTxRxResult(dxl_comm_result));
+    }
+
 
 }
 
-void Motors::backToNomial() {
-    moveTogether(0, 0, 0, 0, 0, 0, 0);
+void Motors::backToNomial(vector<int> orgPos) {
+    moveTogether(orgPos[0], orgPos[1], orgPos[2], orgPos[3], orgPos[4], orgPos[5], orgPos[6]);
 }
 
 void Motors::moveOne(int position, int dxl_id) {
@@ -447,7 +458,7 @@ void Motors::moveTogether(int P1, int P2, int P3, int P4, int P5, int P6, int P7
         if ( count2 > 5 && count3 > 5 && count4 > 5 && count5 > 5)
             break;
        // printf("\n%d\t%d\t%d\t%d\t%d\n", count1, count2, count3, count4, count5);
-    } while ( abs(P2 - dxl2_present_position) > 10  || abs(P4 - dxl4_present_position) > 10 || abs(P3 - dxl3_present_position) > 10 || abs(P5 - dxl5_present_position) > 10 || abs(P6 - dxl6_present_positoin) > 20 || abs(P7 - dxl7_present_position) > 20);
+    } while ( abs(P2 - dxl2_present_position) > 1  || abs(P4 - dxl4_present_position) > 1 || abs(P3 - dxl3_present_position) > 1 || abs(P5 - dxl5_present_position) > 1 || abs(P6 - dxl6_present_positoin) > 1 || abs(P7 - dxl7_present_position) > 1);
     //(
     
     //disconnect(DXL_ID1);
@@ -502,16 +513,16 @@ vector<int> Motors::getAllMotorPosition() {
     int pos3 = getOneMotorPosition(DXL_ID3);
     int pos4 = getOneMotorPosition(DXL_ID4);
     int pos5 = getOneMotorPosition(DXL_ID5);
-    //int pos6 = getOneMotorPosition(DXL_ID6);
-    //int pos7 = getOneMotorPosition(DXL_ID7);
+    int pos6 = getOneMotorPosition(DXL_ID6);
+    int pos7 = getOneMotorPosition(DXL_ID7);
     
     pos.push_back(pos1);
     pos.push_back(pos2);
     pos.push_back(pos3);
     pos.push_back(pos4);
     pos.push_back(pos5);
-    //pos.push_back(pos6);
-    //pos.push_back(pos7);
+    pos.push_back(pos6);
+    pos.push_back(pos7);
 
     portHandler->closePort();
     isOpen = false;
