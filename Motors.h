@@ -52,6 +52,8 @@ public:
 	void backToNomial(vector<int> orgPos);
 	int getOneMotorPosition(int dxl_id);
 	vector<int> getAllMotorPosition();
+	int readPWN(int dxl_id);
+	void setPWN(int dxl_id, int limit);
 
 private:
 	PortHandler* portHandler;

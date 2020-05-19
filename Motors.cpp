@@ -32,22 +32,57 @@ Motors::Motors() {
         printf("Failed to change the baudrate!\n");
     }
 
-    dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, 1, 100, 30, &dxl_error);
-    if (dxl_comm_result != COMM_SUCCESS)
-    {
-        printf("%s\n", packetHandler->getTxRxResult(dxl_comm_result));
-    }
-    dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, 1, 36, 600, &dxl_error);
-    if (dxl_comm_result != COMM_SUCCESS)
-    {
-        printf("%s\n", packetHandler->getTxRxResult(dxl_comm_result));
-    }
+
 
 
 }
 
+void Motors::setPWN(int dxl_id, int limit) {
+    dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, dxl_id, 100, limit
+        , &dxl_error);
+    if (dxl_comm_result != COMM_SUCCESS)
+    {
+        printf("%s\n", packetHandler->getTxRxResult(dxl_comm_result));
+    }
+    dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, dxl_id, 36, limit, &dxl_error);
+    if (dxl_comm_result != COMM_SUCCESS)
+    {
+        printf("%s\n", packetHandler->getTxRxResult(dxl_comm_result));
+    }
+}
+
+int Motors::readPWN(int dxl_id) {
+    if (!isOpen) {
+        portHandler->openPort();
+        isOpen = true;
+    }
+
+    int16_t pwn;
+    dxl_comm_result = packetHandler->read2ByteTxRx(portHandler, dxl_id, 100, (uint16_t*)&pwn, &dxl_error);
+    if (dxl_comm_result != COMM_SUCCESS)
+    {
+        printf("%s\n", packetHandler->getTxRxResult(dxl_comm_result));
+    }
+    else if (dxl_error != 0)
+    {
+        printf("%s\n", packetHandler->getRxPacketError(dxl_error));
+    }
+    //  printf("CurrPos:%03d", dxl_present_position);
+    disconnect(dxl_id);
+    return pwn;
+
+}
+
 void Motors::backToNomial(vector<int> orgPos) {
-    moveTogether(orgPos[0], orgPos[1], orgPos[2], orgPos[3], orgPos[4], orgPos[5], orgPos[6]);
+    //moveTogether(orgPos[0], orgPos[1], orgPos[2], orgPos[3], orgPos[4], orgPos[5], orgPos[6]);
+    moveOne(orgPos[0], DXL_ID1);
+    moveOne(orgPos[1], DXL_ID2);
+    moveOne(orgPos[2], DXL_ID3);
+    moveOne(orgPos[3], DXL_ID4);
+    moveOne(orgPos[4], DXL_ID5);
+    moveOne(orgPos[5], DXL_ID6);
+    moveOne(orgPos[6], DXL_ID7);
+    
 }
 
 void Motors::moveOne(int position, int dxl_id) {
@@ -55,6 +90,20 @@ void Motors::moveOne(int position, int dxl_id) {
     if (!isOpen) {
         portHandler->openPort();
         isOpen = true;
+    }
+
+    if (dxl_id == 1) {
+        dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, 1, 100, 600
+            , &dxl_error);
+        if (dxl_comm_result != COMM_SUCCESS)
+        {
+            printf("%s\n", packetHandler->getTxRxResult(dxl_comm_result));
+        }
+        dxl_comm_result = packetHandler->write2ByteTxRx(portHandler, 1, 36, 600, &dxl_error);
+        if (dxl_comm_result != COMM_SUCCESS)
+        {
+            printf("%s\n", packetHandler->getTxRxResult(dxl_comm_result));
+        }
     }
 
     int32_t dxl_present_position = 0, oldSpot = 0;               // Present position
@@ -109,7 +158,7 @@ void Motors::moveOne(int position, int dxl_id) {
         printf("%s\n", packetHandler->getRxPacketError(dxl_error));
     }
 
-    disconnect(dxl_id);
+//    disconnect(dxl_id);
 
     portHandler->closePort();
     isOpen = false;
@@ -162,6 +211,7 @@ void Motors::moveTogether(int P1, int P2, int P3, int P4, int P5, int P6, int P7
         isOpen = true;
     }
 
+
     // Initialize GroupSyncWrite instance
     dynamixel::GroupSyncWrite groupSyncWrite(portHandler, packetHandler, ADDR_PRO_GOAL_POSITION, LEN_PRO_GOAL_POSITION);
     // Initialize Groupsyncread instance for Present Position
@@ -176,15 +226,15 @@ void Motors::moveTogether(int P1, int P2, int P3, int P4, int P5, int P6, int P7
     int32_t oldDx1, oldDx2, oldDx3, oldDx4, oldDx5, oldDx6, oldDx7;
 
     oldDx1 = oldDx2 = oldDx3 = oldDx4 = oldDx5 = oldDx6 = oldDx7 = 0;
-
+    /*
     // Add parameter storage for Dynamixel#1 present position value
-    /*dxl_addparam_result = groupSyncRead.addParam(DXL_ID1);
+    dxl_addparam_result = groupSyncRead.addParam(DXL_ID1);
     if (dxl_addparam_result != true)
     {
         fprintf(stderr, "[ID:%03d] groupSyncRead addparam failed", DXL_ID1);
         return;
-    }*/
-
+    }
+    */
     // Add parameter storage for Dynamixel#2 present position value
     dxl_addparam_result = groupSyncRead.addParam(DXL_ID2);
     if (dxl_addparam_result != true)
@@ -229,7 +279,7 @@ void Motors::moveTogether(int P1, int P2, int P3, int P4, int P5, int P6, int P7
     }
     
     
-    //connect(DXL_ID1);
+   // connect(DXL_ID1);
     connect(DXL_ID2);
     connect(DXL_ID3);
     connect(DXL_ID4);
@@ -239,7 +289,8 @@ void Motors::moveTogether(int P1, int P2, int P3, int P4, int P5, int P6, int P7
 
     //write logic
         // Add Dynamixel#1 goal position value to the Syncwrite storage
-    /*etParamGoalArray(P1);
+    /*
+    setParamGoalArray(P1);
     dxl_addparam_result = groupSyncWrite.addParam(DXL_ID1, param_goal_position);
     if (dxl_addparam_result != true)
     {
@@ -343,11 +394,12 @@ void Motors::moveTogether(int P1, int P2, int P3, int P4, int P5, int P6, int P7
         {
             printf("[ID:%03d] %s\n", DXL_ID5, packetHandler->getRxPacketError(dxl_error));
         }
-
-//        else if (groupSyncRead.getError(DXL_ID1, &dxl_error))
-  //      {
-    //        printf("[ID:%03d] %s\n", DXL_ID1, packetHandler->getRxPacketError(dxl_error));
-      //  }
+        /*
+        else if (groupSyncRead.getError(DXL_ID1, &dxl_error))
+        {
+            printf("[ID:%03d] %s\n", DXL_ID1, packetHandler->getRxPacketError(dxl_error));
+        }
+        */
 
                 else if (groupSyncRead.getError(DXL_ID6, &dxl_error))
         {
@@ -360,13 +412,14 @@ void Motors::moveTogether(int P1, int P2, int P3, int P4, int P5, int P6, int P7
         
 
         // Check if groupsyncread data of Dynamixel#1 is available
-        
-        //dxl_getdata_result = groupSyncRead.isAvailable(DXL_ID1, ADDR_PRO_PRESENT_POSITION, LEN_PRO_PRESENT_POSITION);
-        //if (dxl_getdata_result != true)
-        //{
-         //   fprintf(stderr, "[ID:%03d] groupSyncRead getdata failed", DXL_ID1);
-          //  return;
-        //}
+        /*
+        dxl_getdata_result = groupSyncRead.isAvailable(DXL_ID1, ADDR_PRO_PRESENT_POSITION, LEN_PRO_PRESENT_POSITION);
+        if (dxl_getdata_result != true)
+        {
+            fprintf(stderr, "[ID:%03d] groupSyncRead getdata failed", DXL_ID1);
+            return;
+        }
+        */
         
 
         // Check if groupsyncread data of Dynamixel#2 is available
@@ -418,7 +471,7 @@ void Motors::moveTogether(int P1, int P2, int P3, int P4, int P5, int P6, int P7
 
 
         // Get Dynamixel#1 present position value
-      //  dxl1_present_position = groupSyncRead.getData(DXL_ID1, ADDR_PRO_PRESENT_POSITION, LEN_PRO_PRESENT_POSITION);
+     //   dxl1_present_position = groupSyncRead.getData(DXL_ID1, ADDR_PRO_PRESENT_POSITION, LEN_PRO_PRESENT_POSITION);
 
         // Get Dynamixel#2 present position value
         dxl2_present_position = groupSyncRead.getData(DXL_ID2, ADDR_PRO_PRESENT_POSITION, LEN_PRO_PRESENT_POSITION);
@@ -457,18 +510,19 @@ void Motors::moveTogether(int P1, int P2, int P3, int P4, int P5, int P6, int P7
             count5++;
         if ( count2 > 5 && count3 > 5 && count4 > 5 && count5 > 5)
             break;
-       // printf("\n%d\t%d\t%d\t%d\t%d\n", count1, count2, count3, count4, count5);
-    } while ( abs(P2 - dxl2_present_position) > 1  || abs(P4 - dxl4_present_position) > 1 || abs(P3 - dxl3_present_position) > 1 || abs(P5 - dxl5_present_position) > 1 || abs(P6 - dxl6_present_positoin) > 1 || abs(P7 - dxl7_present_position) > 1);
+       // printf("\n%d\t%d\t%d\t%d\t%d\n", count1, count2, count3, count4, count5);//|| abs(P1 - dxl1_present_position) > 1
+    } while ( abs(P2 - dxl2_present_position) > 1  || abs(P4 - dxl4_present_position) > 1 || abs(P3 - dxl3_present_position) > 1 || abs(P5 - dxl5_present_position) > 1 || abs(P6 - dxl6_present_positoin) > 1 || abs(P7 - dxl7_present_position) > 1 );
     //(
     
-    //disconnect(DXL_ID1);
+   // disconnect(DXL_ID1);
+    /*
     disconnect(DXL_ID2);
     disconnect(DXL_ID3);
     disconnect(DXL_ID4);
     disconnect(DXL_ID5);
     disconnect(DXL_ID6);
     disconnect(DXL_ID7);
-
+    */
     portHandler->closePort();
     isOpen = false;
 
