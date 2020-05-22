@@ -18,7 +18,7 @@ public:
 	void forwardKinematics(double TH1, double TH2, double TH3, double TH4, double TH5, double TH6, double TH7);
 	void getJacobian(double TH1, double TH2, double TH3, double TH4, double TH5, double TH6, double TH7);
 	void getTrajetory(mat roti, mat rotf, mat Pi, mat Pf, double dt, double t);
-	vector<double> initialStart(mat Ti, mat Tf);
+	vector<double> initialStart(mat Ti, mat Tf, vector<double> readInAngle);
 	vector<double> updateTheta(int i, double TH1, double TH2, double TH3, double TH4, double TH5, double TH6, double TH7);
 
 

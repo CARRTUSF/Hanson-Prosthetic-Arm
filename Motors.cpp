@@ -125,6 +125,7 @@ void Motors::moveOne(int position, int dxl_id) {
 
     do
     {
+
         oldSpot = dxl_present_position;
 
         // Read present position
@@ -140,15 +141,16 @@ void Motors::moveOne(int position, int dxl_id) {
 
         printf("[ID:%03d] GoalPos:%03d  PresPos:%03d\n", dxl_id, position, dxl_present_position);
 
-        if (oldSpot == dxl_present_position - 1 || oldSpot == dxl_present_position + 1)
+        if (oldSpot == dxl_present_position - 1 || oldSpot == dxl_present_position + 1 || oldSpot + 1 == dxl_present_position || oldSpot - 1 == dxl_present_position )
             count++;
         if (count > 5)
             break;
-
-    } while ((abs(position - dxl_present_position) > DXL_MOVING_STATUS_THRESHOLD));
+        if (dxl_id == 1 && dxl_present_position > 3200)
+            break;
+    } while ((abs(position - dxl_present_position) > 0));
 
     // Disable Dynamixel Torque
-    dxl_comm_result = packetHandler->write1ByteTxRx(portHandler, dxl_id, ADDR_PRO_TORQUE_ENABLE, TORQUE_DISABLE, &dxl_error);
+   /* dxl_comm_result = packetHandler->write1ByteTxRx(portHandler, dxl_id, ADDR_PRO_TORQUE_ENABLE, TORQUE_DISABLE, &dxl_error);
     if (dxl_comm_result != COMM_SUCCESS)
     {
         printf("%s\n", packetHandler->getTxRxResult(dxl_comm_result));
@@ -156,7 +158,7 @@ void Motors::moveOne(int position, int dxl_id) {
     else if (dxl_error != 0)
     {
         printf("%s\n", packetHandler->getRxPacketError(dxl_error));
-    }
+    }*/
 
 //    disconnect(dxl_id);
 
@@ -280,12 +282,14 @@ void Motors::moveTogether(int P1, int P2, int P3, int P4, int P5, int P6, int P7
     
     
    // connect(DXL_ID1);
+    
     connect(DXL_ID2);
     connect(DXL_ID3);
     connect(DXL_ID4);
     connect(DXL_ID5);
     connect(DXL_ID6);
     connect(DXL_ID7);
+    
 
     //write logic
         // Add Dynamixel#1 goal position value to the Syncwrite storage
@@ -511,7 +515,7 @@ void Motors::moveTogether(int P1, int P2, int P3, int P4, int P5, int P6, int P7
         if ( count2 > 5 && count3 > 5 && count4 > 5 && count5 > 5)
             break;
        // printf("\n%d\t%d\t%d\t%d\t%d\n", count1, count2, count3, count4, count5);//|| abs(P1 - dxl1_present_position) > 1
-    } while ( abs(P2 - dxl2_present_position) > 1  || abs(P4 - dxl4_present_position) > 1 || abs(P3 - dxl3_present_position) > 1 || abs(P5 - dxl5_present_position) > 1 || abs(P6 - dxl6_present_positoin) > 1 || abs(P7 - dxl7_present_position) > 1 );
+    } while ( abs(P2 - dxl2_present_position) > 0  || abs(P4 - dxl4_present_position) > 0 || abs(P3 - dxl3_present_position) > 0 || abs(P5 - dxl5_present_position) > 0 || abs(P6 - dxl6_present_positoin) > 0 || abs(P7 - dxl7_present_position) > 0 );
     //(
     
    // disconnect(DXL_ID1);
